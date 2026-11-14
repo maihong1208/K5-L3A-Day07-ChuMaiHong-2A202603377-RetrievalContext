@@ -7,7 +7,7 @@
 - **Agent:** Hoàn thành vòng search–answer/abstain, lọc section, kiểm tra citation theo context, chống lặp truy vấn và fallback về câu hỏi gốc.
 - **Đánh giá:** Đã lưu trace, nhãn người chấm và metrics cho baseline lẫn cấu hình được chọn.
 - **Báo cáo/chi phí:** Hoàn thành; chi phí là ước tính từ token usage, không phải hóa đơn thực tế.
-- **Thử thách nâng cao:** Không làm theo yêu cầu.
+- **Thử thách nâng cao:** Đã triển khai pipeline multimodal riêng và hoàn tất đánh giá test thủ công. Kết quả 22/30 (73.3%), dưới ngưỡng bonus 27/30 (90%); vì vậy chưa đạt ngưỡng thử thách.
 
 ## Dữ liệu và cấu hình
 
@@ -91,6 +91,13 @@ python starter/run_agent_benchmark.py --benchmark starter/data/final_test_questi
 python -m unittest discover -s tests -v
 ```
 
-## Kết luận
+## Thử thách nâng cao — truy xuất PDF đa phương thức
 
-Các phần bắt buộc của Day 7 đã hoàn thành và có kết quả lưu kèm. Day 7 tái sử dụng nguyên trạng dữ liệu/index Day 6; không sửa bài Day 6. Dense Day 6 B với context budget 3200 là cấu hình được chọn trên dev và giữ nguyên cho test cuối. Retrieval đưa evidence tốt vào context, nhưng agent vẫn có false abstention và một citation không hỗ trợ, nên chưa nên xem là hệ thống trả lời đáng tin cậy để triển khai. Thử thách nâng cao được để lại đúng theo yêu cầu.
+- **Nguồn và phạm vi:** IPCC AR6 WGI Technical Summary (112 trang). Quyền tái sử dụng/phân phối PDF và nội dung phái sinh chưa được xác minh; PDF, trang render, văn bản trích xuất, index và trace có trích đoạn nguồn chỉ được giữ cục bộ, không đưa vào Git.
+- **Pipeline riêng Day 7:** Trích xuất 810,609 ký tự, 5 bảng và 38 trang có hình/biểu đồ; tạo 38 mô tả thị giác, trong đó mô tả sơ đồ trên trang PDF 80 được kiểm tra và hiệu chỉnh thủ công. Index Chroma riêng có 1,172 chunk (1,018 text, 100 table, 54 visual), dùng lại `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` của Day 6. Không sửa code, index hoặc dữ liệu Day 6.
+- **Cấu hình được đóng băng trước test:** Reciprocal-rank fusion giữa dense embedding Day 6 và TF-IDF, ưu tiên chunk hình khi truy vấn nêu tên figure; top-k=8, context budget=18,000 ký tự, tối đa 3 lượt search. Dev lấy đúng trang evidence cho 15/15 câu answerable. Bộ test gồm 30 câu (24 answerable, 6 no-evidence), benchmark SHA-256 được ghi trong `run_manifest.json`; gold không được đưa vào agent.
+- **Kết quả test và đánh giá thủ công:** 22/30 = 73.3%, trong khi yêu cầu 27/30 = 90%; **không đạt ngưỡng bonus**. Không có lỗi hệ thống; 6/6 câu no-evidence được abstain đúng. Kết quả theo nhóm: table 4/6, image/diagram 4/5, chart 3/5, multi-hop 2/4, text 3/4, no-evidence 6/6. Tám câu chưa đạt là T-T05, T-T06, T-I02, T-C02, T-C03, T-M01, T-M04 và T-X03; gồm một giá trị bảng sai hàng, bốn lần abstain sai, và ba câu trả lời thiếu/không đủ citation support.
+- **Chi phí và thời gian:** Ước tính API $0.01836 cho 30 câu; trung bình 4.87 giây/câu (median 4.28 giây). Đây là ước tính theo usage và giá `gpt-4o-mini`, không phải hóa đơn.
+- **Kiểm thử:** 8 unit tests nâng cao pass; các file Python nâng cao compile thành công.
+
+Benchmark ở `starter/advanced_benchmark.json`; output chi tiết được lưu cục bộ trong `starter/results/advanced-test-frozen-topk8-budget18000/` gồm `run_manifest.json`, `cases.json`, `traces.json`, `reviews.json` và `metrics.json`. Dữ liệu nguồn và output này vẫn bị `.gitignore` loại khỏi Git do quyền phân phối chưa được xác minh. Hướng dẫn tái tạo nằm trong `starter/README.md`.

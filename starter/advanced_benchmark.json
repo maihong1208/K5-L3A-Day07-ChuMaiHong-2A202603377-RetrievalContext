@@ -1,0 +1,815 @@
+{
+  "source": {
+    "title": "Climate Change 2021: The Physical Science Basis — Technical Summary (IPCC AR6 WGI)",
+    "year": 2021,
+    "pdf_pages": 112,
+    "url": "https://www.ipcc.ch/report/ar6/wg1/",
+    "rights_status": "Reuse and redistribution rights for the downloaded PDF and derived content were not verified; source and generated data remain local and excluded from Git."
+  },
+  "questions": [
+    {
+      "id": "D-T01",
+      "split": "dev",
+      "category": "table",
+      "question": "In Table TS.1, what is identified as the main driver of tropospheric warming since 1979?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Human influence is identified as the main driver.",
+      "evidence": [
+        {
+          "pdf_page": 33,
+          "printed_page": 65,
+          "region": "Table TS.1, row 'Warming of the troposphere since 1979', Human Contribution Assessment column",
+          "supports": "The assessment cell says 'Main driver'."
+        }
+      ]
+    },
+    {
+      "id": "D-T02",
+      "split": "dev",
+      "category": "table",
+      "question": "In Table TS.2, how do agricultural and ecological drought changes at +1.5°C compare with observed changes?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "They increase in more regions than the observed changes.",
+      "evidence": [
+        {
+          "pdf_page": 35,
+          "printed_page": 67,
+          "region": "Table TS.2, 'Agricultural and ecological droughts: Intensity and/or frequency' row, +1.5°C column",
+          "supports": "The cell says increases occur in more regions compared with observed changes."
+        }
+      ]
+    },
+    {
+      "id": "D-T03",
+      "split": "dev",
+      "category": "table",
+      "question": "In Table TS.3, what is the 50th-percentile remaining carbon budget for limiting warming to 1.7°C?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "850 GtCO2, starting from 1 January 2020.",
+      "evidence": [
+        {
+          "pdf_page": 66,
+          "printed_page": 98,
+          "region": "Table TS.3, row 1.7°C in the 'Global surface temperature change since 1850–1900' column and 50th-percentile TCRE column",
+          "supports": "The row is 0.63°C since 2010–2019 / 1.7°C since 1850–1900 and the 50th percentile is 850 GtCO2."
+        }
+      ]
+    },
+    {
+      "id": "D-I01",
+      "split": "dev",
+      "category": "image_diagram",
+      "question": "Which four water-cycle variables are mapped in Box TS.6, Figure 1?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Precipitation, evapotranspiration, runoff, and surface soil moisture.",
+      "evidence": [
+        {
+          "pdf_page": 55,
+          "printed_page": 87,
+          "region": "Box TS.6, Figure 1, four map headings",
+          "supports": "The maps are labeled precipitation, evapotranspiration, runoff, and surface soil moisture."
+        }
+      ]
+    },
+    {
+      "id": "D-I02",
+      "split": "dev",
+      "category": "image_diagram",
+      "question": "In the Figure TS.12(a) mechanisms diagram, name any two labeled factors that contribute to enhanced Mediterranean warming.",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Examples include a warm Atlantic Ocean, reduction of aerosols, surface drying, and lapse-rate differences that produce stronger warming over land than over sea.",
+      "evidence": [
+        {
+          "pdf_page": 80,
+          "printed_page": 112,
+          "region": "Figure TS.12(a), schematic 'Mechanisms of enhanced Mediterranean warming'",
+          "supports": "The schematic labels the warm Atlantic Ocean, reduction of aerosols, surface drying, and lapse-rate difference."
+        }
+      ]
+    },
+    {
+      "id": "D-I03",
+      "split": "dev",
+      "category": "image_diagram",
+      "question": "What concept does the upper-left schematic in Figure TS.6 depict?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "The likelihood distribution for equilibrium climate sensitivity (ECS), including its likely range and low-likelihood tails.",
+      "evidence": [
+        {
+          "pdf_page": 26,
+          "printed_page": 58,
+          "region": "Figure TS.6, upper-left panel",
+          "supports": "The panel is labeled 'Schematic ECS likelihood' and shows relative likelihood against ECS."
+        }
+      ]
+    },
+    {
+      "id": "D-C01",
+      "split": "dev",
+      "category": "chart",
+      "question": "In Figure TS.2, what are the three plotted dimensions that show progress in climate models?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Model resolution, model complexity, and representation of key variables; panel (c) evaluates the latter using pattern correlation with observational references.",
+      "evidence": [
+        {
+          "pdf_page": 18,
+          "printed_page": 50,
+          "region": "Figure TS.2 panels (a), (b), and (c)",
+          "supports": "The caption identifies progress in resolution, complexity, and representation of key variables; panel (c) is labeled pattern correlation with observational reference."
+        }
+      ]
+    },
+    {
+      "id": "D-C02",
+      "split": "dev",
+      "category": "chart",
+      "question": "In Figure TS.3, what warming level is used to show the historical temperature-change and signal-to-noise patterns?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "A global warming level of 1°C.",
+      "evidence": [
+        {
+          "pdf_page": 19,
+          "printed_page": 51,
+          "region": "Figure TS.3 caption and panels (a) and (b)",
+          "supports": "The caption says the observed temperature change and signal-to-noise ratio are shown at a 1°C global warming level."
+        }
+      ]
+    },
+    {
+      "id": "D-C03",
+      "split": "dev",
+      "category": "chart",
+      "question": "In Figure TS.9(a), over what time span are proxy-record carbon-dioxide changes shown?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Over the past 3.5 million years.",
+      "evidence": [
+        {
+          "pdf_page": 36,
+          "printed_page": 68,
+          "region": "Figure TS.9(a), x- and y-axes",
+          "supports": "The Figure TS.9 caption says panel (a) shows proxy-record CO2 changes over the past 3.5 million years."
+        }
+      ]
+    },
+    {
+      "id": "D-M01",
+      "split": "dev",
+      "category": "multi_hop",
+      "question": "Figure TS.13 covers the 1971–2018 energy-budget period. Combining the accompanying text with that figure, what expected energy gain is estimated from the likely ERF range and central radiative-response estimate?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "For 1971–2018, 340 ZJ, with a range of 47–662 ZJ.",
+      "evidence": [
+        {
+          "pdf_page": 58,
+          "printed_page": 90,
+          "region": "Figure TS.13 caption and panel (f)",
+          "supports": "The figure concerns net cumulative energy change for 1971–2018 and identifies the energy-budget panel."
+        },
+        {
+          "pdf_page": 59,
+          "printed_page": 91,
+          "region": "Paragraph beginning 'Improved quantifications of ERF...'",
+          "supports": "The expected energy gain is 340 [47 to 662] ZJ."
+        }
+      ]
+    },
+    {
+      "id": "D-M02",
+      "split": "dev",
+      "category": "multi_hop",
+      "question": "What does Table TS.1 report as the human contribution to ocean heat-content increase, and which two indicators are plotted in Figure TS.11?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Table TS.1 identifies human influence as the main driver; Figure TS.11 includes marine heatwaves and the Atlantic Meridional Overturning Circulation (AMOC).",
+      "evidence": [
+        {
+          "pdf_page": 33,
+          "printed_page": 65,
+          "region": "Table TS.1, Ocean heat content increase since the 1970s row, Human Contribution Assessment column",
+          "supports": "The cell says 'Main driver'."
+        },
+        {
+          "pdf_page": 43,
+          "printed_page": 75,
+          "region": "Figure TS.11 panels",
+          "supports": "The figure includes marine heatwaves and AMOC indicators."
+        }
+      ]
+    },
+    {
+      "id": "D-M03",
+      "split": "dev",
+      "category": "multi_hop",
+      "question": "Relative to what baseline are global warming levels expressed in the prose, and how is the Figure TS.6 heat-warning index measured?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "GWLs are relative to 1850–1900; the heat-warning index is the average number of days per year that the NOAA Heat Index reaches the 'danger' level for human health.",
+      "evidence": [
+        {
+          "pdf_page": 24,
+          "printed_page": 56,
+          "region": "Prose describing global warming levels",
+          "supports": "The report defines GWLs relative to 1850–1900."
+        },
+        {
+          "pdf_page": 26,
+          "printed_page": 58,
+          "region": "Figure TS.6 caption, heat-warning-index description",
+          "supports": "The index is average days per year at which the NOAA Heat Index reaches the human-health 'danger' level."
+        }
+      ]
+    },
+    {
+      "id": "D-X01",
+      "split": "dev",
+      "category": "text",
+      "question": "What does the Technical Summary say about the near-term global-warming effect of changes in short-lived climate forcers across scenarios?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Changes in short-lived climate forcers will very likely cause further warming over the next two decades across all scenarios.",
+      "evidence": [
+        {
+          "pdf_page": 10,
+          "printed_page": 42,
+          "region": "Selected Updates and/or New Results Since AR5, SRCCL and SROCC, short-lived climate forcers bullet",
+          "supports": "The text says changes in SLCFs will very likely cause further warming in the next two decades across all scenarios."
+        }
+      ]
+    },
+    {
+      "id": "D-X02",
+      "split": "dev",
+      "category": "text",
+      "question": "What CH4 concentration and increase since 1750 does the summary report for 2019?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "1,866.3 ± 3.3 ppb, an increase of 1,137 ± 10 ppb since 1750.",
+      "evidence": [
+        {
+          "pdf_page": 37,
+          "printed_page": 69,
+          "region": "Paragraph beginning 'By 2019, concentrations of CH4 reached...'",
+          "supports": "The paragraph reports 1,866.3 (±3.3) ppb and an increase since 1750 of 1,137 ± 10 ppb."
+        }
+      ]
+    },
+    {
+      "id": "D-X03",
+      "split": "dev",
+      "category": "text",
+      "question": "According to the summary, how did the temporary emissions reductions associated with COVID-19 containment affect radiative forcing and detectability of climate responses?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "They produced a small positive net radiative effect (warming influence), but global and regional climate responses were undetectable above internal variability because the emissions reductions were temporary.",
+      "evidence": [
+        {
+          "pdf_page": 10,
+          "printed_page": 42,
+          "region": "COVID-19 bullet under Selected Updates and/or New Results Since AR5, SRCCL and SROCC",
+          "supports": "The text describes a small positive net radiative effect and undetectable global and regional responses above internal variability."
+        }
+      ]
+    },
+    {
+      "id": "D-N01",
+      "split": "dev",
+      "category": "no_evidence",
+      "question": "According to this Technical Summary, what was the EU ETS allowance price in euros per tonne on 1 January 2030?",
+      "answerable": false,
+      "expected_behavior": "abstain",
+      "gold_answer": null,
+      "evidence": [],
+      "absence_check": "Checked the full extracted text and indexed visual/table content for EU ETS allowance prices and 2030 price forecasts; the report does not provide that market-price datum."
+    },
+    {
+      "id": "D-N02",
+      "split": "dev",
+      "category": "no_evidence",
+      "question": "What was Hanoi's population in 2020 according to this Technical Summary?",
+      "answerable": false,
+      "expected_behavior": "abstain",
+      "gold_answer": null,
+      "evidence": [],
+      "absence_check": "Checked the full report text, tables, and visual descriptions for Hanoi population data; no city-population statistic is reported."
+    },
+    {
+      "id": "D-N03",
+      "split": "dev",
+      "category": "no_evidence",
+      "question": "What exact carbon-tax rate does this Technical Summary recommend for Canada in 2030?",
+      "answerable": false,
+      "expected_behavior": "abstain",
+      "gold_answer": null,
+      "evidence": [],
+      "absence_check": "Checked the full report for a Canadian carbon-tax recommendation or rate; the Technical Summary does not specify one."
+    },
+    {
+      "id": "T-T01",
+      "split": "test",
+      "category": "table",
+      "question": "In Table TS.2, how does the frequency or intensity of cold extremes change at both +2°C and +4°C global warming?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "It decreases at both warming levels.",
+      "evidence": [
+        {
+          "pdf_page": 35,
+          "printed_page": 67,
+          "region": "Table TS.2, 'Cold extremes: Frequency or intensity' row, +2°C and +4°C columns",
+          "supports": "Both projected cells contain a downward arrow."
+        }
+      ]
+    },
+    {
+      "id": "T-T02",
+      "split": "test",
+      "category": "table",
+      "question": "Table TS.2 gives what projected change in the proportion of intense tropical cyclones at +4°C?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "An increase of 20%.",
+      "evidence": [
+        {
+          "pdf_page": 35,
+          "printed_page": 67,
+          "region": "Table TS.2, 'Tropical cyclones: Proportion of intense cyclones' row, +4°C column",
+          "supports": "The +4°C cell says increase +20%."
+        }
+      ]
+    },
+    {
+      "id": "T-T03",
+      "split": "test",
+      "category": "table",
+      "question": "At +2°C, what change in the rate of precipitation associated with tropical cyclones is shown in Table TS.2?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "An increase of 14%.",
+      "evidence": [
+        {
+          "pdf_page": 35,
+          "printed_page": 67,
+          "region": "Table TS.2, 'Precipitation associated with tropical cyclones' row, +2°C column",
+          "supports": "The +2°C cell says rate +14%."
+        }
+      ]
+    },
+    {
+      "id": "T-T04",
+      "split": "test",
+      "category": "table",
+      "question": "What change in co-occurring heatwaves and droughts is projected as global warming increases, according to Table TS.2?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Their frequency and intensity increase with warming.",
+      "evidence": [
+        {
+          "pdf_page": 35,
+          "printed_page": 67,
+          "region": "Table TS.2, 'Compound events: Co-occurrent heatwaves and droughts' row, projected +1.5°C cell",
+          "supports": "The cell states frequency and intensity increase with warming."
+        }
+      ]
+    },
+    {
+      "id": "T-T05",
+      "split": "test",
+      "category": "table",
+      "question": "In Table TS.3, what is the 50th-percentile remaining carbon budget for a 1.8°C warming limit?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "1,000 GtCO2, starting from 1 January 2020.",
+      "evidence": [
+        {
+          "pdf_page": 66,
+          "printed_page": 98,
+          "region": "Table TS.3, 1.8°C row and 50th-percentile TCRE column",
+          "supports": "The value is 1,000 GtCO2."
+        }
+      ]
+    },
+    {
+      "id": "T-T06",
+      "split": "test",
+      "category": "table",
+      "question": "In Table TS.3, what is the 50th-percentile remaining carbon budget for a 1.9°C warming limit?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "1,200 GtCO2, starting from 1 January 2020.",
+      "evidence": [
+        {
+          "pdf_page": 66,
+          "printed_page": 98,
+          "region": "Table TS.3, 1.9°C row and 50th-percentile TCRE column",
+          "supports": "The value is 1,200 GtCO2."
+        }
+      ]
+    },
+    {
+      "id": "T-I01",
+      "split": "test",
+      "category": "image_diagram",
+      "question": "What major stages does Figure TS.4 show between anthropogenic emissions and regional climatic impact-drivers?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Emissions lead to atmospheric concentrations, radiative forcing, global climate change/warming, and ultimately regional climate change and climatic impact-drivers.",
+      "evidence": [
+        {
+          "pdf_page": 21,
+          "printed_page": 53,
+          "region": "Figure TS.4, central cause–effect chain and caption",
+          "supports": "The diagram and caption show the emissions → concentrations → forcing → global climate → regional climate/impact-driver sequence."
+        }
+      ]
+    },
+    {
+      "id": "T-I02",
+      "split": "test",
+      "category": "image_diagram",
+      "question": "Which three variables are mapped in Figure TS.5(b) across global warming levels?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Near-surface air temperature, precipitation, and soil moisture.",
+      "evidence": [
+        {
+          "pdf_page": 24,
+          "printed_page": 56,
+          "region": "Figure TS.5(b), three map-column headings",
+          "supports": "The map columns are temperature change, precipitation change, and soil moisture change."
+        }
+      ]
+    },
+    {
+      "id": "T-I03",
+      "split": "test",
+      "category": "image_diagram",
+      "question": "In Figure TS.14, what three stages follow the baseline top-of-atmosphere energy budget after a perturbation?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Instantaneous changes to the radiation balance, adjustments to meteorology and composition, and feedback responses.",
+      "evidence": [
+        {
+          "pdf_page": 59,
+          "printed_page": 91,
+          "region": "Figure TS.14 sequence across panels (a)–(d)",
+          "supports": "The schematic labels instantaneous changes, adjustments, and feedback responses after the baseline."
+        }
+      ]
+    },
+    {
+      "id": "T-I04",
+      "split": "test",
+      "category": "image_diagram",
+      "question": "In Figure TS.21, which region and season are used for the illustrated precipitation case study?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "South-Eastern South America (SES), during austral summer (DJF).",
+      "evidence": [
+        {
+          "pdf_page": 85,
+          "printed_page": 117,
+          "region": "Figure TS.21 title and panel (a) heading",
+          "supports": "The case study is South-Eastern South America and the precipitation is austral summer (DJF)."
+        }
+      ]
+    },
+    {
+      "id": "T-I05",
+      "split": "test",
+      "category": "image_diagram",
+      "question": "Figure TS.23 compares which two observational datasets, and what do grey regions mean on the CRUTEM5 map?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Berkeley Earth and CRUTEM5; grey means there are not enough data (less than 50% of the region is covered by available data).",
+      "evidence": [
+        {
+          "pdf_page": 101,
+          "printed_page": 133,
+          "region": "Figure TS.23 map labels and caption",
+          "supports": "The upper and lower maps use Berkeley Earth and CRUTEM5; the caption says grey CRUTEM5 regions have data over less than 50% of the area."
+        }
+      ]
+    },
+    {
+      "id": "T-C01",
+      "split": "test",
+      "category": "chart",
+      "question": "Which two SSP scenario trajectories are plotted in Figure TS.5(a)?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "SSP1-2.6 and SSP3-7.0.",
+      "evidence": [
+        {
+          "pdf_page": 24,
+          "printed_page": 56,
+          "region": "Figure TS.5(a), legend and caption",
+          "supports": "The chart shows CMIP6 simulations for SSP1-2.6 and SSP3-7.0."
+        }
+      ]
+    },
+    {
+      "id": "T-C02",
+      "split": "test",
+      "category": "chart",
+      "question": "In Figure TS.12(b), what does the horizontal axis measure, and what two outcomes are shown for 10-year and 50-year heavy-precipitation events?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "The horizontal axis is global surface temperature change relative to 1850–1900; the chart shows relative event frequency and intensity change (in percent) for 10-year and 50-year heavy-precipitation events.",
+      "evidence": [
+        {
+          "pdf_page": 51,
+          "printed_page": 83,
+          "region": "Figure TS.12(b), axes, legend, and caption",
+          "supports": "The x-axis is global temperature change since 1850–1900; the panel plots relative frequency and intensity for 10- and 50-year heavy precipitation events."
+        }
+      ]
+    },
+    {
+      "id": "T-C03",
+      "split": "test",
+      "category": "chart",
+      "question": "What five emissions-stage labels are shown in Figure TS.19?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Large net positive CO2 emissions, small net positive CO2 emissions, two net-negative CO2-emissions stages (the second is marked as a period with no significant change), and net zero CO2 emissions and removals.",
+      "evidence": [
+        {
+          "pdf_page": 68,
+          "printed_page": 100,
+          "region": "Figure TS.19 chart labels (a)–(e)",
+          "supports": "The five chart stages are explicitly labeled in the figure."
+        }
+      ]
+    },
+    {
+      "id": "T-C04",
+      "split": "test",
+      "category": "chart",
+      "question": "What period and unit does Figure TS.13 use for its net cumulative energy-change estimates?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "The period is 1971–2018 and the unit is ZJ, where 1 ZJ equals 10^21 joules.",
+      "evidence": [
+        {
+          "pdf_page": 58,
+          "printed_page": 90,
+          "region": "Figure TS.13 caption and panel labels",
+          "supports": "The caption states 1971–2018 and defines ZJ as 10^21 joules."
+        }
+      ]
+    },
+    {
+      "id": "T-C05",
+      "split": "test",
+      "category": "chart",
+      "question": "In Figure TS.11, name two ocean or cryosphere indicators for which past and future changes are shown.",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Examples include marine heatwaves, AMOC, dissolved oxygen, and ocean acidification.",
+      "evidence": [
+        {
+          "pdf_page": 43,
+          "printed_page": 75,
+          "region": "Figure TS.11 panels and caption",
+          "supports": "The figure includes chart panels for marine heatwaves, AMOC, dissolved oxygen, and ocean acidification."
+        }
+      ]
+    },
+    {
+      "id": "T-M01",
+      "split": "test",
+      "category": "multi_hop",
+      "question": "What cause–effect sequence does Figure TS.4 show from emissions to climatic impact-drivers, and what change in the proportion of intense tropical cyclones does Table TS.2 project at +4°C?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Emissions lead to atmospheric concentrations, radiative forcing, global climate change, and regional climate change/climatic impact-drivers; the proportion of intense tropical cyclones increases by 20% at +4°C.",
+      "evidence": [
+        {
+          "pdf_page": 21,
+          "printed_page": 53,
+          "region": "Figure TS.4 cause–effect chain",
+          "supports": "The figure connects emissions and forcing to regional climate and climatic impact-drivers."
+        },
+        {
+          "pdf_page": 35,
+          "printed_page": 67,
+          "region": "Table TS.2, proportion of intense tropical cyclones row, +4°C column",
+          "supports": "The +4°C cell reports an increase of 20%."
+        }
+      ]
+    },
+    {
+      "id": "T-M02",
+      "split": "test",
+      "category": "multi_hop",
+      "question": "For a 1.5°C limit, Table TS.3 gives the 50th-percentile remaining carbon budget. How much larger would the budget be if AR5-era evidence and methods were used instead?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "The Table TS.3 budget is 500 GtCO2; using AR5-era evidence and methods would make the 1.5°C budget about 300–350 GtCO2 larger.",
+      "evidence": [
+        {
+          "pdf_page": 66,
+          "printed_page": 98,
+          "region": "Table TS.3, 1.5°C row, 50th-percentile TCRE column",
+          "supports": "The remaining budget is 500 GtCO2 from 1 January 2020."
+        },
+        {
+          "pdf_page": 67,
+          "printed_page": 99,
+          "region": "Paragraph comparing AR6 budgets with AR5 methods",
+          "supports": "The 1.5°C budget would be about 300–350 GtCO2 larger with AR5-era evidence and methods."
+        }
+      ]
+    },
+    {
+      "id": "T-M03",
+      "split": "test",
+      "category": "multi_hop",
+      "question": "Figure TS.21 identifies drivers of the South-Eastern South America precipitation trend. Using the figure and the accompanying prose, name three modes of variability and the external forcing influences mentioned.",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "The modes include AMV, ENSO, and PDV; the external influences include greenhouse-gas increases, ozone depletion, and aerosols.",
+      "evidence": [
+        {
+          "pdf_page": 85,
+          "printed_page": 117,
+          "region": "Figure TS.21(a), labeled driver diagram",
+          "supports": "The diagram labels AMV, ENSO, PDV, GHG plus O3 depletion, and Aerosol."
+        },
+        {
+          "pdf_page": 86,
+          "printed_page": 118,
+          "region": "Paragraph beginning 'Austral summer (DJF) precipitation positive trends...'",
+          "supports": "The text names AMV, ENSO, and PDV, along with GHG increases and ozone depletion together with aerosols."
+        }
+      ]
+    },
+    {
+      "id": "T-M04",
+      "split": "test",
+      "category": "multi_hop",
+      "question": "Table TS.4 says what about human influence on observed ENSO changes, and what percentages of Northern Central America interannual SAT and precipitation variance are explained by ENSO?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "There is low agreement on human influence; ENSO explains 13% of SAT variance and 27% of precipitation variance in Northern Central America.",
+      "evidence": [
+        {
+          "pdf_page": 83,
+          "printed_page": 115,
+          "region": "Table TS.4(a), Human influence on observed changes row, ENSO column",
+          "supports": "The cell says 'Low agreement'."
+        },
+        {
+          "pdf_page": 84,
+          "printed_page": 116,
+          "region": "Table TS.4(b), Northern Central America row, ENSO DJF SAT and precipitation columns",
+          "supports": "The ENSO values are 13% for SAT and 27% for precipitation."
+        }
+      ]
+    },
+    {
+      "id": "T-X01",
+      "split": "test",
+      "category": "text",
+      "question": "What range of CO2 release from permafrost do the cited models project per 1°C of global warming by 2100?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "3–41 PgC per 1°C of global warming by 2100.",
+      "evidence": [
+        {
+          "pdf_page": 65,
+          "printed_page": 97,
+          "region": "Paragraph beginning 'Thawing terrestrial permafrost will lead to carbon release...'",
+          "supports": "The ensemble projects CO2 release of 3–41 PgC per 1°C by 2100."
+        }
+      ]
+    },
+    {
+      "id": "T-X02",
+      "split": "test",
+      "category": "text",
+      "question": "What was identified as the main driver of upper-stratospheric cooling since 1979?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Stratospheric ozone depletion due to ozone-depleting substances.",
+      "evidence": [
+        {
+          "pdf_page": 39,
+          "printed_page": 71,
+          "region": "Paragraph discussing stratospheric cooling",
+          "supports": "The text identifies ozone depletion due to ozone-depleting substances as the main driver of upper-stratospheric cooling since 1979."
+        }
+      ]
+    },
+    {
+      "id": "T-X03",
+      "split": "test",
+      "category": "text",
+      "question": "Why are single-model initial-condition large ensembles needed in the regional climate discussion?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "They are needed to separate internal variability from forced changes and to partition sources of uncertainty across future assessed periods.",
+      "evidence": [
+        {
+          "pdf_page": 86,
+          "printed_page": 118,
+          "region": "Paragraph beginning 'In addition, single-model initial-condition large ensembles...'",
+          "supports": "The text states both purposes."
+        }
+      ]
+    },
+    {
+      "id": "T-X04",
+      "split": "test",
+      "category": "text",
+      "question": "Which two physical contributions underpin the AR6 global mean sea-level projections described in the summary?",
+      "answerable": true,
+      "expected_behavior": "answer",
+      "gold_answer": "Ocean thermal expansion and land-ice contributions.",
+      "evidence": [
+        {
+          "pdf_page": 11,
+          "printed_page": 43,
+          "region": "Projected global mean sea level change bullet under TS.1",
+          "supports": "The text says projections are based on ocean thermal expansion and land-ice contribution estimates."
+        }
+      ]
+    },
+    {
+      "id": "T-N01",
+      "split": "test",
+      "category": "no_evidence",
+      "question": "What exact 2100 sea-level rise in centimetres does this Technical Summary project for Ho Chi Minh City?",
+      "answerable": false,
+      "expected_behavior": "abstain",
+      "gold_answer": null,
+      "evidence": [],
+      "absence_check": "Checked the full report for a Ho Chi Minh City-specific 2100 sea-level projection; the report does not provide this city-level value."
+    },
+    {
+      "id": "T-N02",
+      "split": "test",
+      "category": "no_evidence",
+      "question": "What global carbon-tax rate in dollars per tonne does the report prescribe for 2025?",
+      "answerable": false,
+      "expected_behavior": "abstain",
+      "gold_answer": null,
+      "evidence": [],
+      "absence_check": "Checked the full report for a prescribed global carbon-tax rate for 2025; no such price recommendation is given."
+    },
+    {
+      "id": "T-N03",
+      "split": "test",
+      "category": "no_evidence",
+      "question": "According to this report, what was Bangkok's observed annual rainfall total in 2022?",
+      "answerable": false,
+      "expected_behavior": "abstain",
+      "gold_answer": null,
+      "evidence": [],
+      "absence_check": "Checked the full report for Bangkok annual rainfall in 2022; the report does not contain this city-year observation."
+    },
+    {
+      "id": "T-N04",
+      "split": "test",
+      "category": "no_evidence",
+      "question": "How many people lived in Hanoi in 2020 according to this Technical Summary?",
+      "answerable": false,
+      "expected_behavior": "abstain",
+      "gold_answer": null,
+      "evidence": [],
+      "absence_check": "Checked the full report for Hanoi population counts; no such city demographic statistic is reported."
+    },
+    {
+      "id": "T-N05",
+      "split": "test",
+      "category": "no_evidence",
+      "question": "What percentage GDP loss does this report predict for Vietnam in 2040 under SSP3-7.0?",
+      "answerable": false,
+      "expected_behavior": "abstain",
+      "gold_answer": null,
+      "evidence": [],
+      "absence_check": "Checked the full Technical Summary for a Vietnam-specific GDP-loss projection under SSP3-7.0; it does not report this economic impact value."
+    },
+    {
+      "id": "T-N06",
+      "split": "test",
+      "category": "no_evidence",
+      "question": "Which named IPCC author created Figure TS.14, according to this Technical Summary?",
+      "answerable": false,
+      "expected_behavior": "abstain",
+      "gold_answer": null,
+      "evidence": [],
+      "absence_check": "Checked the figure caption and full report for an individual creator attribution for Figure TS.14; no such attribution is provided."
+    }
+  ]
+}

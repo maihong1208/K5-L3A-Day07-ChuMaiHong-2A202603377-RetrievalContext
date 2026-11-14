@@ -61,3 +61,25 @@ Thay đường dẫn trong `< >`. Script tổng hợp nhãn bạn đã chấm, k
 TF-IDF dùng cách tách từ đơn giản. `baseline.py` dùng mặc định context budget 800 ký tự, gồm cả nguồn; chunk không vừa bị bỏ. Bạn có thể chọn cách khác. File kết quả cùng tên sẽ bị ghi đè. `starter/data/` và `starter/results/` không được Git theo dõi mặc định; nếu được phép chia sẻ, dùng `git add -f <đường-dẫn>`, hoặc ghi cách tái tạo. Không nộp dữ liệu mật và secret.
 
 Khung agent ưu tiên giữ chunk từ lần search trước. Khi chunk đầu chiếm gần hết budget, lần search sau có thể không thêm được evidence; hãy kiểm tra trace và thử cách chọn context phù hợp trên dev. Citation ID hợp lệ hoặc verifier trả “đúng” không đảm bảo câu trả lời được hỗ trợ; cần chấm thủ công.
+
+## 5. Thử thách nâng cao: PDF đa phương thức
+
+Pipeline nâng cao nằm riêng trong `advanced_extract.py`, `advanced_describe_visuals.py`, `advanced_index.py`, `advanced_retriever.py`, `advanced_run.py` và `advanced_metrics.py`. Nó tạo index Day 7 độc lập, dùng lại embedding Day 6, kết hợp dense retrieval với TF-IDF bằng reciprocal-rank fusion, và giữ citation theo trang/loại nội dung. Không sửa dữ liệu, index hay mã nguồn Day 6.
+
+PDF IPCC AR6 WGI Technical Summary được lưu cục bộ tại `starter\data\advanced\IPCC_AR6_WGI_TS.pdf`. Quyền tái sử dụng và phân phối PDF chưa được xác minh; không commit hoặc chia sẻ PDF, trang render, văn bản trích xuất, index hay trace có chứa trích đoạn nguồn cho đến khi quyền được xác nhận.
+
+Chạy từ thư mục gốc bằng Python environment có các dependency Day 6 và cấu hình API trong `.env`:
+
+```powershell
+python starter\advanced_extract.py --pdf starter\data\advanced\IPCC_AR6_WGI_TS.pdf --output starter\data\advanced\extracted
+python starter\advanced_describe_visuals.py --manifest starter\data\advanced\extracted\manifest.json --output starter\data\advanced\extracted\visual_descriptions.json --resume
+python starter\advanced_index.py --manifest starter\data\advanced\extracted\manifest.json --visual-descriptions starter\data\advanced\extracted\visual_descriptions.json --index-dir starter\data\advanced\extracted\chroma
+python starter\advanced_run.py --benchmark starter\advanced_benchmark.json --split dev --output starter\results\advanced-dev --top-k 8 --budget 18000 --max-searches 3
+python starter\advanced_run.py --benchmark starter\advanced_benchmark.json --split test --output starter\results\advanced-test --top-k 8 --budget 18000 --max-searches 3
+python starter\advanced_metrics.py --benchmark starter\advanced_benchmark.json --cases starter\results\advanced-test\cases.json --traces starter\results\advanced-test\traces.json --reviews starter\results\advanced-test\reviews.json --split test --output starter\results\advanced-test\metrics.json
+python -m unittest discover -s tests -p "test_advanced*.py" -v
+```
+
+`advanced_benchmark.json` có 18 câu dev và 30 câu test; gold answers/evidence không được đưa vào agent. Chạy test một lần sau khi chốt cấu hình dev, rồi chấm từng câu thủ công theo nguồn. `reviews.json` phải có `pass`, lý do, một `citation_support` boolean cho mỗi citation, và `absence_check` cho từng câu no-evidence.
+
+Kết quả hiện tại: dev thu hồi đúng trang evidence cho 15/15 câu có đáp án; test đạt 22/30 (73.3%), thấp hơn ngưỡng 27/30 (90%). Sáu câu no-evidence đều được abstain đúng; không có lỗi hệ thống. Kết quả không đạt ngưỡng bonus. Trace, đánh giá thủ công và metrics nằm trong `starter\results\advanced-test-frozen-topk8-budget18000\` trên máy chạy; thư mục `starter\data\` và `starter\results\` không được Git theo dõi mặc định.
