@@ -1,9 +1,11 @@
 """Offline behavioral checks only; fake adapters do not measure model quality."""
 import sys
 import unittest
+from types import SimpleNamespace
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'starter'))
-from agentic import run_agent
+from agentic import OpenAIModelController, run_agent
+from run_agent_benchmark import estimate_cost_usd
 
 CHUNK = {'id': 'c1', 'text': 'Hoàn tiền trong 7 ngày.', 'source_id': 'doc',
          'source': 'doc.pdf', 'page': 1, 'score': 0.8, 'metadata': {}}
@@ -18,6 +20,26 @@ class Retriever:
         self.calls.append((query, filters, top_k)); return self.results
 
 class AgentTests(unittest.TestCase):
+    def test_usage_tracks_cached_tokens_and_estimates_known_model_cost(self):
+        controller = OpenAIModelController.__new__(OpenAIModelController)
+        controller.usage = {
+            'requests': 0,
+            'input_tokens': 0,
+            'cached_input_tokens': 0,
+            'output_tokens': 0,
+        }
+        response = SimpleNamespace(usage=SimpleNamespace(
+            input_tokens=1000,
+            output_tokens=100,
+            input_tokens_details=SimpleNamespace(cached_tokens=200),
+        ))
+
+        controller._record_usage(response)
+
+        self.assertEqual(controller.usage['cached_input_tokens'], 200)
+        self.assertEqual(estimate_cost_usd('gpt-4o-mini', controller.usage), 0.000195)
+        self.assertIsNone(estimate_cost_usd('unlisted-model', controller.usage))
+
     def test_agent_searches_and_cites_actual_context(self):
         c = Controller([{'action': 'search', 'query': 'hoàn tiền'},
                         {'action': 'answer', 'answer': '7 ngày [c1]', 'citations': ['c1']}])
@@ -32,10 +54,28 @@ class AgentTests(unittest.TestCase):
             c = Controller([{'action':'search','query':'q'}, {'action':'answer','answer':f'7 ngày [{cid}]','citations':[cid]}])
             self.assertEqual(run_agent('q', c, Retriever(rows))['status'], 'abstain')
 
+    def test_inlines_a_valid_structured_citation(self):
+        c = Controller([{'action':'search','query':'hoàn tiền'},
+                       {'action':'answer','answer':'Hoàn tiền trong 7 ngày.','citations':['c1']}])
+        result = run_agent('Hoàn tiền?', c, Retriever([CHUNK]))
+        self.assertEqual(result['status'], 'answered')
+        self.assertEqual(result['answer'], 'Hoàn tiền trong 7 ngày. [c1]')
+        self.assertEqual(result['events'][-1]['citation_ids_appended'], ['c1'])
+
     def test_search_limit_is_enforced(self):
         c = Controller([{'action':'search','query':'one'}, {'action':'search','query':'two'}, {'action':'search','query':'three'}])
         r = Retriever([CHUNK]); result = run_agent('q', c, r, max_searches=2)
         self.assertEqual(result['status'], 'abstain'); self.assertEqual(len(r.calls), 2)
+
+    def test_repeated_search_stops_without_duplicate_retrieval(self):
+        c = Controller([{'action':'search','query':'same query'},
+                        {'action':'search','query':' SAME   QUERY '},
+                        {'action':'answer','answer':'7 ngày [c1]','citations':['c1']}])
+        r = Retriever([CHUNK]); result = run_agent('q', c, r)
+        self.assertEqual(result['status'], 'answered')
+        self.assertEqual(r.calls, [('same query', None, 3), ('q', None, 3)])
+        self.assertEqual(result['events'][1]['event'], 'repeated_search')
+        self.assertTrue(result['events'][2]['fallback'])
 
     def test_context_budget_across_multiple_searches(self):
         other = {**CHUNK, 'id': 'c2', 'text': 'Một đoạn bằng chứng khác.'}
